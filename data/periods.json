@@ -1,0 +1,35 @@
+{
+  "_help": "Edit label (the years shown), name (the title of the period) and color. 'buildings' is shown in the legend; changing it does not move buildings on the map.",
+  "periods": [
+    {
+      "label": "Before 1976",
+      "name": "Colonial and early Independence Lagos",
+      "color": "#7b2d26",
+      "buildings": 325000
+    },
+    {
+      "label": "1976–2000",
+      "name": "Early urban expansion",
+      "color": "#c8642c",
+      "buildings": 457119
+    },
+    {
+      "label": "2001–2010",
+      "name": "Megacity sprawl",
+      "color": "#e3a83a",
+      "buildings": 376813
+    },
+    {
+      "label": "2011–2015",
+      "name": "Lekki Corridor / Eko Atlantic",
+      "color": "#2f8f83",
+      "buildings": 88656
+    },
+    {
+      "label": "2016–2025",
+      "name": "Recent urban expansion",
+      "color": "#3b4cc0",
+      "buildings": 928895
+    }
+  ]
+}

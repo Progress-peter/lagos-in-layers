@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Every building in Lagos State in 3D, coloured by the era it was built and set in the history around it.">
+<title>Lagos in Layers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main aria-label="Map"><canvas id="scene" role="img" aria-label="3D map of every building in Lagos State. Use the map controls, the tabs or search to explore it."></canvas></main>
+<div class="haze" aria-hidden="true"></div>
+
+<header class="topbar">
+  <a class="brand" href="./" aria-label="Lagos in Layers, home">
+    <h1 class="wordmark">Lagos<small>in Layers</small></h1>
+    <span class="stripe" aria-hidden="true"></span>
+  </a>
+  <nav class="topnav" aria-label="Explore the city by">
+    <button type="button" data-mode="0" aria-pressed="true"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M8 4.5V8l2.5 1.5"/></svg>Year</button>
+    <button type="button" data-mode="1" aria-pressed="false"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 14V9M8 14V3M13 14V6"/></svg>Height</button>
+    <button type="button" data-mode="3" aria-pressed="false"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 4c-1.5-1-3.5-1.3-5.5-1v10c2-.3 4 0 5.5 1 1.5-1 3.5-1.3 5.5-1V3C11.5 2.7 9.5 3 8 4zM8 4v10"/></svg>Stories</button>
+    <button type="button" class="graph-open" aria-pressed="false"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="4" cy="4" r="1.8"/><circle cx="12" cy="5" r="1.8"/><circle cx="7" cy="12" r="1.8"/><path d="M5.7 4.3l4.5.5M11.1 6.6 8 10.5M4.6 5.7l1.8 4.6"/></svg>Connections</button>
+    <button type="button" class="tours-open" aria-pressed="false"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="3.5" cy="12.5" r="1.5"/><path d="M5 12.5h4a2.5 2.5 0 0 0 0-5H7a2.5 2.5 0 0 1 0-5h4.5"/><path d="M11.5 1v3.5l2-1.75z"/></svg>Tours</button>
+    <button type="button" class="quest-open" aria-pressed="false"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M6.3 6.2a1.8 1.8 0 1 1 2.4 1.7c-.5.2-.7.6-.7 1.1M8 11.3v.1"/></svg>Quest</button>
+  </nav>
+  <div class="topbar-end">
+    <div class="find" role="search">
+      <input type="search" id="find-input" autocomplete="off" spellcheck="false" placeholder="Search a place or LGA" aria-label="Search a place, area or LGA" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="find-results">
+      <ul id="find-results" class="find-results" role="listbox" aria-label="Search results" hidden></ul>
+      <div id="find-sel" class="find-sel" hidden></div>
+    </div>
+    <button type="button" class="about-open" aria-haspopup="dialog">About</button>
+  </div>
+</header>
+
+<aside class="stack" aria-label="Details">
+  <section id="focus" class="sheet focusbox" hidden aria-live="polite"></section>
+  <section id="panel" class="sheet panel" aria-labelledby="panel-title">
+    <header class="sheet-head">
+      <div>
+        <h2 id="panel-title">When it was built</h2>
+        <p id="panel-dek" class="sheet-dek"></p>
+      </div>
+      <button type="button" class="sheet-toggle" aria-expanded="true" aria-controls="panel-body" aria-label="Collapse details"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 10l4-4 4 4"/></svg></button>
+    </header>
+    <div id="panel-body" class="sheet-body"></div>
+  </section>
+  <section id="walk" class="sheet walkcard" hidden aria-label="Tour"></section>
+  <section id="quest" class="sheet questcard" hidden aria-label="Eko Quest"></section>
+</aside>
+
+<div class="navkit" role="region" aria-label="Map controls">
+  <button type="button" data-nk="zoom-in" aria-label="Zoom in" title="Zoom in"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M3 8h10"/></svg></button>
+  <button type="button" data-nk="zoom-out" aria-label="Zoom out" title="Zoom out"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10"/></svg></button>
+  <button type="button" data-nk="rot-left" aria-label="Turn left" title="Turn left"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 6.5A5 5 0 1 1 3 9.5"/><path d="M3 3v3.5h3.5"/></svg></button>
+  <button type="button" data-nk="tilt-up" aria-label="Tilt towards the horizon" title="Tilt towards the horizon"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 13.5h12l-3-4H5z"/><path d="M5.5 5 8 2.5 10.5 5"/></svg></button>
+  <button type="button" data-nk="rot-right" aria-label="Turn right" title="Turn right"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M12.5 6.5A5 5 0 1 0 13 9.5"/><path d="M13 3v3.5H9.5"/></svg></button>
+  <button type="button" id="nk-compass" class="compass" aria-label="Face north and reset the tilt" title="Face north"><svg viewBox="0 0 24 24" aria-hidden="true"><g id="nk-needle"><path d="M12 3l3.2 9H8.8z" fill="#d4380d"/><path d="M12 21l-3.2-9h6.4z" fill="#17140f"/></g></svg></button>
+  <button type="button" id="nk-spin" aria-pressed="false" aria-label="Spin 360 degrees around the view" title="Spin 360°">360°</button>
+  <button type="button" data-nk="tilt-down" aria-label="Tilt towards a top-down view" title="Tilt towards a top-down view"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5h9v5h-9z"/><path d="M5.5 3 8 5.5 10.5 3"/></svg></button>
+</div>
+
+<footer class="dock" aria-label="Timeline">
+  <button type="button" id="play" class="play" aria-label="Play the city's growth">
+    <svg viewBox="0 0 16 16" aria-hidden="true"><path id="play-icon" d="M4 2.5v11l9-5.5z"/></svg>
+  </button>
+  <div class="tally" aria-live="off">
+    <span id="tally-year" class="tally-year">2025</span>
+    <span id="tally-count" class="tally-count"></span>
+  </div>
+  <p class="howto"><span><b>Drag</b> to move</span><span><b>Scroll</b> to zoom</span><span><b>Double-click</b> to fly in</span></p>
+  <canvas id="hist" tabindex="0" role="slider" aria-label="Year shown on the map" aria-orientation="horizontal"></canvas>
+</footer>
+
+<dialog id="about" class="about drawer" aria-labelledby="about-title">
+  <button type="button" class="about-close" aria-label="Close">×</button>
+  <article>
+    <h2 id="about-title">About this map</h2>
+    <p>2,176,483 buildings of Lagos State, one for each home in the 2025 housing-stock estimate, coloured by period and set in the history that shaped them.</p>
+    <p class="notice">A non-commercial project, made out of curiosity and for education.</p>
+    <p class="author"><b>Made by Progress Peter Akpan</b>, GIS and geospatial analyst, Lagos.</p>
+    <p class="credit">Inspired by Alex Barakov's <a href="https://stop-token.com/lab/amsterdam/" target="_blank" rel="noopener">LAYRS: Amsterdam</a> and Sasha Bogachev's <a href="https://paris.bogachev.fr" target="_blank" rel="noopener">Paris, building by building</a>. The 3D building renderer adapts parts of Barakov's open-source viewer (<a href="https://github.com/alexbarakov/amsterdam-by-building" target="_blank" rel="noopener">MIT licence</a>).</p>
+    <h3>Is it really 2.2 million?</h3>
+    <p>Yes. Google's building dataset alone finds between 2.17 and 2.52 million buildings inside Lagos State's 20 LGAs, depending on the confidence cut-off. In the merged footprints shown here, fewer than 0.1% overlap one another. Lagos State covers about 3,500 km², and most of its buildings are one- and two-storey compounds.</p>
+    <h3>Data</h3>
+    <ul>
+      <li>Footprints: Overture Maps buildings, release 2026-09-23 (OpenStreetMap, Google Open Buildings, Microsoft ML Buildings). ODbL and CC BY 4.0.</li>
+      <li>Year a building first appears, 2016–2023, and most heights: Google Open Buildings 2.5D Temporal. CC BY 4.0.</li>
+      <li>Year the surrounding area was first built up: GHSL built-up surface 1975–2020 (European Commission, JRC) and World Settlement Footprint Evolution 1985–2015 (DLR).</li>
+      <li>LGA boundaries, land, water, roads, place names: Overture Maps divisions, base, transportation and places.</li>
+      <li>Stories: Wikipedia and the sources linked on each one.</li>
+      <li>“Google Maps” opens the place in Google Maps; nothing from Google is copied into this page. “Panorama” drops you to street level inside this 3D model.</li>
+    </ul>
+    <h3>Periods and housing stock</h3>
+    <p>The five periods and their totals come from the 2025 State of Lagos Housing Market Report: 325,000 homes before 1976, 457,119 from 1976 to 2000, 376,813 from 2001 to 2010, 88,656 from 2011 to 2015 and 928,895 from 2016 to 2025, a total of 2,176,483. The 1976 figure is derived from the report's assumed growth of 3.92% a year.</p>
+    <h3>Method</h3>
+    <p>Lagos has no public register of construction years, so every building is ranked by how early satellites show it or its surroundings built up: Google's yearly building maps for 2016–2023, the 30 m World Settlement Footprint from 1985, and the 100 m GHSL built-up layer from 1975. Within one satellite date, buildings in blocks that were already denser count as older. The oldest 325,000 fill “Before 1976”, the next 457,119 fill 1976–2000, and so on, so each period holds exactly the report's number. The report counts homes and the map counts buildings, so the match is by design rather than by survey. The 53,445 footprints least visible to the satellites are left out to make the total 2,176,483. Buildings with a documented date, such as Independence House (1961), keep it.</p>
+  </article>
+</dialog>
+
+
+<div id="card" class="card" role="region" aria-label="Building details" hidden></div>
+<section id="graph" class="graph" hidden aria-label="Connections between people, events and buildings">
+  <svg id="g-svg" role="img" aria-label="Network of people, events, organisations and the buildings they touched"></svg>
+  <div class="g-panel" aria-labelledby="g-title">
+    <div class="g-head">
+      <div>
+        <h2 id="g-title">Connections</h2>
+        <p class="g-lede">People, events and organisations, linked to the buildings they shaped. Every line is a sourced story.</p>
+      </div>
+      <button type="button" class="sheet-toggle" aria-expanded="true" aria-controls="g-body" aria-label="Collapse details"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 10l4-4 4 4"/></svg></button>
+    </div>
+    <div id="g-body" class="g-body">
+      <input type="search" id="g-find" placeholder="Search for a name" autocomplete="off" aria-label="Search for a name">
+      <div id="g-kinds" class="g-kinds" role="group" aria-label="Show or hide by type"></div>
+      <div id="g-sel" aria-live="polite"></div>
+      <p class="g-foot">Squares are buildings. Select a point to see its links; Shift-click to add more.</p>
+    </div>
+  </div>
+  <div id="g-tip" class="g-tip" hidden></div>
+</section>
+<p id="status" class="status" hidden></p>
+<div id="pano-bar" class="pano-bar" role="status" hidden><b id="pano-name">Panorama</b><span>Drag to look · click the street or use W A S D / arrows to walk · Shift to run</span><button type="button" id="pano-exit">Exit panorama</button></div>
+
+<div id="loading" class="loading">Building the city…</div>
+<script src="intro.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script type="importmap">
+{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+               "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/" } }
+</script>
+<script type="module" src="app.js"></script>
+</body>
+</html>

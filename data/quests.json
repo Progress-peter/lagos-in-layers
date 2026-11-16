@@ -1,0 +1,226 @@
+[
+ {
+  "title": "Landmarks of Eko",
+  "blurb": "Ten places every Lagosian has heard of.",
+  "qs": [
+   {
+    "q": "Which Catholic cathedral, on the edge of the Brazilian Quarter on Lagos Island, has been the seat of the Archdiocese of Lagos since 1950?",
+    "a": [
+     "holy cross cathedral",
+     "holy cross",
+     "cathedral of the holy cross",
+     "holy cross catholic cathedral"
+    ],
+    "t": "Holy Cross Cathedral",
+    "hint": "Its French Gothic building was finished in 1939."
+   },
+   {
+    "q": "On Gberefu Island near Badagry, which spot marked the last steps of enslaved people on African soil?",
+    "a": [
+     "point of no return",
+     "no return",
+     "gberefu",
+     "point of no return gberefu"
+    ],
+    "t": "Point of No Return, Gberefu (approximate pin)",
+    "hint": "Its name says there was no coming back."
+   },
+   {
+    "q": "Which palace, first built in 1670 for Oba Gabaro, is the official home of the Oba of Lagos?",
+    "a": [
+     "iga idunganran",
+     "idunganran",
+     "iga idungaran",
+     "oba of lagos palace",
+     "obas palace"
+    ],
+    "t": "Iga Idunganran",
+    "hint": "Its name means roughly “palace on a pepper farm”."
+   },
+   {
+    "q": "Which 25-storey tower was the British government’s gift for Nigeria’s independence?",
+    "a": [
+     "independence house",
+     "defence house",
+     "defense house"
+    ],
+    "t": "Independence House",
+    "hint": "It stands west of Tafawa Balewa Square and was later called Defence House."
+   },
+   {
+    "q": "Which theatre in Iganmu was finished in 1976 for FESTAC ’77?",
+    "a": [
+     "national theatre",
+     "national arts theatre",
+     "wole soyinka centre",
+     "national theater",
+     "iganmu theatre"
+    ],
+    "t": "National Theatre, Iganmu",
+    "hint": "In 2025 it was renamed after a Nobel laureate."
+   },
+   {
+    "q": "In which stadium did 85,000 people watch Nigeria beat Algeria 3–0 in the 1980 Nations Cup final?",
+    "a": [
+     "national stadium",
+     "surulere stadium",
+     "national stadium surulere"
+    ],
+    "t": "National Stadium, Surulere",
+    "hint": "It opened in 1972 in Surulere."
+   },
+   {
+    "q": "Which new district is being built on sand dredged from the sea in front of Bar Beach?",
+    "a": [
+     "eko atlantic",
+     "eko atlantic city"
+    ],
+    "t": "Eko Atlantic",
+    "hint": "Its sea wall is nicknamed the Great Wall of Lagos."
+   },
+   {
+    "q": "Which venue in Ikeja is home to the yearly Felabration festival?",
+    "a": [
+     "new afrika shrine",
+     "afrika shrine",
+     "new africa shrine",
+     "africa shrine",
+     "the shrine",
+     "shrine"
+    ],
+    "t": "New Afrika Shrine",
+    "hint": "It is run by Femi and Yeni Kuti."
+   },
+   {
+    "q": "Which fishing community stands on stilts over the Lagos Lagoon, near the Third Mainland Bridge?",
+    "a": [
+     "makoko"
+    ],
+    "t": "Makoko",
+    "hint": "It is often called the “Venice of Africa”."
+   },
+   {
+    "q": "Which Anglican cathedral on the Marina was completed in 1946?",
+    "a": [
+     "cathedral church of christ",
+     "christ church cathedral",
+     "cathedral church of christ marina",
+     "marina cathedral"
+    ],
+    "t": "Cathedral Church of Christ, Marina",
+    "hint": "Bishop Samuel Ajayi Crowther’s relics were moved here in 1976."
+   }
+  ]
+ },
+ {
+  "title": "Deeper Lagos",
+  "blurb": "History buffs only.",
+  "qs": [
+   {
+    "q": "Nigeria’s first storey building was built by missionaries in 1842–1845. In which town does it stand?",
+    "a": [
+     "badagry",
+     "first storey building",
+     "badagry first storey"
+    ],
+    "t": "First Storey Building in Nigeria",
+    "hint": "The same coastal town as the Point of No Return."
+   },
+   {
+    "q": "Which Afro-Brazilian mosque on Martins Street was opened in 1894?",
+    "a": [
+     "shitta bey mosque",
+     "shitta-bey mosque",
+     "shitta bey",
+     "shittabey"
+    ],
+    "t": "Shitta-Bey Mosque (approximate pin)",
+    "hint": "It is named after the businessman who paid for it."
+   },
+   {
+    "q": "Which square is the heart of Popo Aguda, the Brazilian Quarter?",
+    "a": [
+     "campos square",
+     "campos"
+    ],
+    "t": "Campos Square",
+    "hint": "It carries a Portuguese family name."
+   },
+   {
+    "q": "Which memorial park now stands on the site of the old Broad Street Prison?",
+    "a": [
+     "freedom park"
+    ],
+    "t": "Freedom Park",
+    "hint": "It opened for the 50th anniversary of independence."
+   },
+   {
+    "q": "Fela rebuilt his home in Ikeja after soldiers burned the first one in 1977. What is it called today?",
+    "a": [
+     "kalakuta museum",
+     "kalakuta",
+     "kalakuta republic",
+     "kalakuta republic museum"
+    ],
+    "t": "Kalakuta Museum",
+    "hint": "He named his compound a “republic”."
+   },
+   {
+    "q": "Which Badagry museum is the former barracoon of a 19th-century chief?",
+    "a": [
+     "seriki williams abass slave museum",
+     "seriki abass",
+     "seriki williams abass",
+     "seriki faremi williams abass",
+     "slave museum",
+     "brazilian barracoon"
+    ],
+    "t": "Seriki Williams Abass Slave Museum",
+    "hint": "The chief’s first name was Seriki."
+   },
+   {
+    "q": "Which railway terminus is the southern end of the Lagos–Ibadan line opened in 1901?",
+    "a": [
+     "iddo terminus",
+     "iddo",
+     "iddo station",
+     "iddo terminal"
+    ],
+    "t": "Iddo Terminus",
+    "hint": "It is on an island between Lagos Island and Ebute Metta."
+   },
+   {
+    "q": "Nigeria’s first deep sea port was inaugurated on 22 January 2023. What is it called?",
+    "a": [
+     "lekki deep sea port",
+     "lekki port",
+     "lekki deep seaport",
+     "lekki seaport"
+    ],
+    "t": "Lekki Deep Sea Port",
+    "hint": "It sits in the Lagos Free Zone in Ibeju-Lekki."
+   },
+   {
+    "q": "Which refinery, designed for 650,000 barrels a day, was commissioned in May 2023?",
+    "a": [
+     "dangote refinery",
+     "dangote",
+     "dangote petroleum refinery"
+    ],
+    "t": "Dangote Refinery",
+    "hint": "It carries the name of Africa’s richest man."
+   },
+   {
+    "q": "Which nature reserve in Lekki has a canopy walkway about 400 m long?",
+    "a": [
+     "lekki conservation centre",
+     "lekki conservation center",
+     "lcc",
+     "conservation centre"
+    ],
+    "t": "Lekki Conservation Centre",
+    "hint": "It was founded by the Nigerian Conservation Foundation in 1990."
+   }
+  ]
+ }
+]
